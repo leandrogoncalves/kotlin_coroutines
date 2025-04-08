@@ -29,7 +29,9 @@ private suspend fun backgroundTask(taskDurationSeconds: Int): Long {
     val stopTimeNano = System.nanoTime() + taskDurationSeconds * 1_000_000_000L
 
     var iterationsCount: Long = 0
-    while (System.nanoTime() < stopTimeNano && coroutineContext.isActive) {
+//    while (System.nanoTime() < stopTimeNano && coroutineContext.isActive) {
+    while (System.nanoTime() < stopTimeNano) {
+        coroutineContext.ensureActive() //Verifica o status da corrotina e executa o cancelamento
         iterationsCount++
     }
 

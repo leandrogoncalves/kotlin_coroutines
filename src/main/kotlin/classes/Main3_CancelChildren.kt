@@ -28,7 +28,8 @@ suspend fun main() {
 
     delay(3000)
     coroutineScope.coroutineContext.cancelChildren()
-    joinAll(taskJob, timerJob)
+    taskJob.join()
+    timerJob.join()
 }
 
 private suspend fun backgroundTask(taskDurationSeconds: Int): Long {

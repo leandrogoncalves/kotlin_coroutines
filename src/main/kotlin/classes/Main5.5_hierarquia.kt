@@ -19,7 +19,10 @@ suspend fun main() {
         }
     }
     scope.launch(CoroutineName("other coroutine")) {
-        delay(750)
+        launch {
+            delay(200)
+        }
+        delay(200)
     }
     job.join()
 }
