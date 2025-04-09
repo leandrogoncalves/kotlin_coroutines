@@ -18,11 +18,14 @@ suspend fun main() {
             scopeJob.printHierarchy()
         }
     }
-    scope.launch(CoroutineName("other coroutine")) {
+    val job2 = scope.launch(CoroutineName("other coroutine")) {
         launch {
+            println("Hello")
             delay(200)
         }
+        println("World")
         delay(200)
     }
+    scopeJob.printHierarchy()
     job.join()
 }

@@ -10,12 +10,21 @@ suspend fun main() {
     threadLogInfo("Init")
 
     val taskDeferred = coroutineScope.async<Long> {
-        val taskResult = backgroundTask(taskDurationSeconds)
-        taskResult
+        try {
+            val taskResult = backgroundTask(taskDurationSeconds)
+            taskResult
+        } catch (e: Exception) {
+            threadLogInfo("Task canceled: $e")
+            0
+        }
     }
 
     val timerJob = coroutineScope.launch {
-        printTaskTime(taskDurationSeconds)
+        try {
+            printTaskTime(taskDurationSeconds)
+        } catch (e: Exception) {
+            threadLogInfo("Timer canceled: $e")
+        }
     }
 
     val result = taskDeferred.await()
