@@ -11,3 +11,8 @@ Projeto de teste de Kotlin usando corritinas
 [AWS Pub-Sub](https://github.com/arthurgregorio/aws-pub-sub)
 
 [Kotlin Coroutines de A a Z](https://www.udemy.com/course/kotlin-coroutines-de-a-a-z/learn/lecture/30112528#overview)
+
+[Introduction to Kotlin Coroutines
+](https://www.baeldung.com/kotlin/coroutines?source=post_page-----ab0fb737f501---------------------------------------)
+
+[Coroutines﻿](https://kotlinlang.org/docs/coroutines-overview.html?source=post_page-----ab0fb737f501---------------------------------------)
